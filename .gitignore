@@ -10,7 +10,6 @@
 .svn
 *.swp
 *~.nib
-  
 build/
 product/
 .adhoc/
