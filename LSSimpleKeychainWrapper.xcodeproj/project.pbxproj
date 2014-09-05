@@ -8,14 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		1C9B51A619B778D700166EA6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B51A519B778D700166EA6 /* Foundation.framework */; };
-		1C9B51AB19B778D700166EA6 /* LSSimpleKeychainWrapper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1C9B51AA19B778D700166EA6 /* LSSimpleKeychainWrapper.h */; };
-		1C9B51AD19B778D700166EA6 /* LSSimpleKeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9B51AC19B778D700166EA6 /* LSSimpleKeychainWrapper.m */; };
 		1C9B51B419B778D800166EA6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B51B319B778D800166EA6 /* XCTest.framework */; };
 		1C9B51B519B778D800166EA6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B51A519B778D700166EA6 /* Foundation.framework */; };
 		1C9B51B719B778D800166EA6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B51B619B778D800166EA6 /* UIKit.framework */; };
 		1C9B51BA19B778D800166EA6 /* libLSSimpleKeychainWrapper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B51A219B778D700166EA6 /* libLSSimpleKeychainWrapper.a */; };
 		1C9B51C019B778D800166EA6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C9B51BE19B778D800166EA6 /* InfoPlist.strings */; };
-		1C9B51C219B778D800166EA6 /* LSSimpleKeychainWrapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9B51C119B778D800166EA6 /* LSSimpleKeychainWrapperTests.m */; };
+		1C9B51C219B778D800166EA6 /* LSSimpleKeychainWrapperCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9B51C119B778D800166EA6 /* LSSimpleKeychainWrapperCreationTests.m */; };
+		1CCF675019B8FCD700A252AE /* LSSimpleKeyChainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF674F19B8FCD700A252AE /* LSSimpleKeyChainWrapper.m */; };
+		1CCF675119B8FCD700A252AE /* LSSimpleKeyChainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF674F19B8FCD700A252AE /* LSSimpleKeyChainWrapper.m */; };
+		1CCF678619B8FFD400A252AE /* LSSimpleKeyChainWrapper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1CCF674E19B8FCD700A252AE /* LSSimpleKeyChainWrapper.h */; };
+		1CCF678819BA022100A252AE /* LSSimpleKeychainWrapperDataSaveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF678719BA022100A252AE /* LSSimpleKeychainWrapperDataSaveTests.m */; };
+		1CCF678A19BA026F00A252AE /* LSSimpleKeychainWrapperDataLoadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF678919BA026F00A252AE /* LSSimpleKeychainWrapperDataLoadTests.m */; };
+		1CCF678C19BA042E00A252AE /* LSSimpleKeychainWrapperDataDeleteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF678B19BA042E00A252AE /* LSSimpleKeychainWrapperDataDeleteTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +39,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				1C9B51AB19B778D700166EA6 /* LSSimpleKeychainWrapper.h in CopyFiles */,
+				1CCF678619B8FFD400A252AE /* LSSimpleKeyChainWrapper.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,14 +49,17 @@
 		1C9B51A219B778D700166EA6 /* libLSSimpleKeychainWrapper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLSSimpleKeychainWrapper.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C9B51A519B778D700166EA6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1C9B51A919B778D700166EA6 /* LSSimpleKeychainWrapper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LSSimpleKeychainWrapper-Prefix.pch"; sourceTree = "<group>"; };
-		1C9B51AA19B778D700166EA6 /* LSSimpleKeychainWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSSimpleKeychainWrapper.h; sourceTree = "<group>"; };
-		1C9B51AC19B778D700166EA6 /* LSSimpleKeychainWrapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSSimpleKeychainWrapper.m; sourceTree = "<group>"; };
 		1C9B51B219B778D800166EA6 /* LSSimpleKeychainWrapperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LSSimpleKeychainWrapperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C9B51B319B778D800166EA6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1C9B51B619B778D800166EA6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		1C9B51BD19B778D800166EA6 /* LSSimpleKeychainWrapperTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LSSimpleKeychainWrapperTests-Info.plist"; sourceTree = "<group>"; };
 		1C9B51BF19B778D800166EA6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1C9B51C119B778D800166EA6 /* LSSimpleKeychainWrapperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSSimpleKeychainWrapperTests.m; sourceTree = "<group>"; };
+		1C9B51C119B778D800166EA6 /* LSSimpleKeychainWrapperCreationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSSimpleKeychainWrapperCreationTests.m; sourceTree = "<group>"; };
+		1CCF674E19B8FCD700A252AE /* LSSimpleKeyChainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSSimpleKeyChainWrapper.h; sourceTree = "<group>"; };
+		1CCF674F19B8FCD700A252AE /* LSSimpleKeyChainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSSimpleKeyChainWrapper.m; sourceTree = "<group>"; };
+		1CCF678719BA022100A252AE /* LSSimpleKeychainWrapperDataSaveTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSSimpleKeychainWrapperDataSaveTests.m; sourceTree = "<group>"; };
+		1CCF678919BA026F00A252AE /* LSSimpleKeychainWrapperDataLoadTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSSimpleKeychainWrapperDataLoadTests.m; sourceTree = "<group>"; };
+		1CCF678B19BA042E00A252AE /* LSSimpleKeychainWrapperDataDeleteTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSSimpleKeychainWrapperDataDeleteTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +117,8 @@
 		1C9B51A719B778D700166EA6 /* LSSimpleKeychainWrapper */ = {
 			isa = PBXGroup;
 			children = (
-				1C9B51AA19B778D700166EA6 /* LSSimpleKeychainWrapper.h */,
-				1C9B51AC19B778D700166EA6 /* LSSimpleKeychainWrapper.m */,
+				1CCF674E19B8FCD700A252AE /* LSSimpleKeyChainWrapper.h */,
+				1CCF674F19B8FCD700A252AE /* LSSimpleKeyChainWrapper.m */,
 				1C9B51A819B778D700166EA6 /* Supporting Files */,
 			);
 			path = LSSimpleKeychainWrapper;
@@ -128,7 +135,10 @@
 		1C9B51BB19B778D800166EA6 /* LSSimpleKeychainWrapperTests */ = {
 			isa = PBXGroup;
 			children = (
-				1C9B51C119B778D800166EA6 /* LSSimpleKeychainWrapperTests.m */,
+				1C9B51C119B778D800166EA6 /* LSSimpleKeychainWrapperCreationTests.m */,
+				1CCF678719BA022100A252AE /* LSSimpleKeychainWrapperDataSaveTests.m */,
+				1CCF678919BA026F00A252AE /* LSSimpleKeychainWrapperDataLoadTests.m */,
+				1CCF678B19BA042E00A252AE /* LSSimpleKeychainWrapperDataDeleteTests.m */,
 				1C9B51BC19B778D800166EA6 /* Supporting Files */,
 			);
 			path = LSSimpleKeychainWrapperTests;
@@ -224,7 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C9B51AD19B778D700166EA6 /* LSSimpleKeychainWrapper.m in Sources */,
+				1CCF675019B8FCD700A252AE /* LSSimpleKeyChainWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +242,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C9B51C219B778D800166EA6 /* LSSimpleKeychainWrapperTests.m in Sources */,
+				1CCF678A19BA026F00A252AE /* LSSimpleKeychainWrapperDataLoadTests.m in Sources */,
+				1CCF678819BA022100A252AE /* LSSimpleKeychainWrapperDataSaveTests.m in Sources */,
+				1CCF675119B8FCD700A252AE /* LSSimpleKeyChainWrapper.m in Sources */,
+				1C9B51C219B778D800166EA6 /* LSSimpleKeychainWrapperCreationTests.m in Sources */,
+				1CCF678C19BA042E00A252AE /* LSSimpleKeychainWrapperDataDeleteTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +419,7 @@
 				1C9B51C719B778D800166EA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1C9B51C819B778D800166EA6 /* Build configuration list for PBXNativeTarget "LSSimpleKeychainWrapperTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +428,7 @@
 				1C9B51CA19B778D800166EA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

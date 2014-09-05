@@ -1,5 +1,5 @@
 /*
- //   LSSimpleKeychainWrapper.h
+// LSSimpleKeychainWrapperDataLoadTests.m
  //   LSSimpleKeychainWrapper
  //
  //  Created by Priya Rajagopal
@@ -23,12 +23,43 @@
  // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  // THE SOFTWARE.
  */
-#import <Foundation/Foundation.h>
 
-@interface LSSimpleKeyChainWrapper : NSObject
-+(id)keyChainWrapperForService:(NSString*)service andAccount:(NSString*)account;
--(OSStatus)saveData:(id)data;
--(id)fetchData;
--(OSStatus)deleteData;
+#import <XCTest/XCTest.h>
+#import "LSSimpleKeyChainWrapper.h"
 
+@interface LSSimpleKeychainWrapperDataLoadTests : XCTestCase
+@property (nonatomic,strong)LSSimpleKeyChainWrapper* kcWrapper;
+@property (nonatomic,strong)NSDictionary* dataToSave;
+
+@end
+
+@implementation LSSimpleKeychainWrapperDataLoadTests
+
+- (void)setUp
+{
+    [super setUp];
+    self.dataToSave = @{@"email":@"user@example.com",@"password":@"dummy"};
+
+    self.kcWrapper = [self singletonWrapper];
+    
+    OSStatus result = [self.kcWrapper saveData:self.dataToSave];
+    XCTAssertEqual(result,0);
+}
+
+- (void)tearDown
+{
+    [super tearDown];
+}
+
+
+-(void)testDataLoad {
+    NSDictionary* data = [self.kcWrapper fetchData];
+    NSLog(@"%s: %@",__func__,data);
+    XCTAssertEqualObjects(data,self.dataToSave);
+}
+
+#pragma mark - helper
+-(LSSimpleKeyChainWrapper*)singletonWrapper {
+    return [LSSimpleKeyChainWrapper keyChainWrapperForService:@"myService" andAccount:@"myAccount"];
+}
 @end

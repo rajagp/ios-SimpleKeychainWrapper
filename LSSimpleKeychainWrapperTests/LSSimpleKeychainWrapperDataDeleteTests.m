@@ -1,5 +1,5 @@
 /*
- //   LSSimpleKeychainWrapper.h
+ //  LSSimpleKeychainWrapperDataDeleteTests.m
  //   LSSimpleKeychainWrapper
  //
  //  Created by Priya Rajagopal
@@ -23,12 +23,48 @@
  // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  // THE SOFTWARE.
  */
-#import <Foundation/Foundation.h>
+#import <XCTest/XCTest.h>
+#import "LSSimpleKeyChainWrapper.h"
 
-@interface LSSimpleKeyChainWrapper : NSObject
-+(id)keyChainWrapperForService:(NSString*)service andAccount:(NSString*)account;
--(OSStatus)saveData:(id)data;
--(id)fetchData;
--(OSStatus)deleteData;
+@interface LSSimpleKeychainWrapperDataDeleteTests : XCTestCase
+@property (nonatomic,strong)LSSimpleKeyChainWrapper* kcWrapper;
+@property (nonatomic,strong)NSDictionary* dataToSave;
 
+@end
+
+@implementation LSSimpleKeychainWrapperDataDeleteTests
+- (void)setUp
+{
+    [super setUp];
+    NSString* fakePassword = @"Password";
+    self.kcWrapper = [self singletonWrapper];
+    self.dataToSave = @{@"email":@"user@example.com",@"password":@"dummy"};
+
+    OSStatus result = [self.kcWrapper saveData:self.dataToSave];
+    XCTAssertEqual(result,0);
+}
+
+- (void)tearDown
+{
+     [super tearDown];
+}
+
+
+-(void)testDataDelete {
+    OSStatus result = [self.kcWrapper deleteData];
+    XCTAssertEqual(result,0);
+}
+
+-(void)testDataLoadAfterDelete {
+    [self testDataDelete];
+    NSString* data = [self.kcWrapper fetchData];
+    XCTAssertNil(data);
+   // XCTAssertThrowsSpecific([self.kcWrapper fetchData], NSException);
+}
+
+
+#pragma mark - helper
+-(LSSimpleKeyChainWrapper*)singletonWrapper {
+    return [LSSimpleKeyChainWrapper keyChainWrapperForService:@"myService" andAccount:@"myAccount"];
+}
 @end

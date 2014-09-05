@@ -1,5 +1,5 @@
 /*
- //   LSSimpleKeychainWrapper.h
+ //   LSSimpleKeychainWrapperDataSaveTests.m
  //   LSSimpleKeychainWrapper
  //
  //  Created by Priya Rajagopal
@@ -23,12 +23,45 @@
  // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  // THE SOFTWARE.
  */
-#import <Foundation/Foundation.h>
+#import <XCTest/XCTest.h>
+#import "LSSimpleKeyChainWrapper.h"
 
-@interface LSSimpleKeyChainWrapper : NSObject
-+(id)keyChainWrapperForService:(NSString*)service andAccount:(NSString*)account;
--(OSStatus)saveData:(id)data;
--(id)fetchData;
--(OSStatus)deleteData;
+@interface LSSimpleKeychainWrapperDataSaveTests : XCTestCase
+@property (nonatomic,strong)LSSimpleKeyChainWrapper* kcWrapper;
+@property (nonatomic,strong)NSDictionary* dataToSave;
+@end
+
+@implementation LSSimpleKeychainWrapperDataSaveTests
+
+- (void)setUp
+{
+    [super setUp];
+    // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.kcWrapper = [self singletonWrapper];
+    self.dataToSave = @{@"email":@"user@example.com",@"password":@"dummy"};
+    
+}
+
+- (void)tearDown
+{
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    [super tearDown];
+}
+
+
+-(void)testDataSave{
+    OSStatus result = [self.kcWrapper saveData:self.dataToSave];
+    XCTAssertEqual(result,0);
+}
+
+-(void)testDuplicateDataSave {
+    OSStatus result = [self.kcWrapper saveData:self.dataToSave];
+    XCTAssertEqual(result,0);
+}
+
+#pragma mark - helper
+-(LSSimpleKeyChainWrapper*)singletonWrapper {
+    return [LSSimpleKeyChainWrapper keyChainWrapperForService:@"myService" andAccount:@"myAccount"];
+}
 
 @end

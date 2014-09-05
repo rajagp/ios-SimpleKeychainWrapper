@@ -1,5 +1,5 @@
 /*
- //   LSSimpleKeychainWrapper.h
+ //   LLSSimpleKeychainWrapperCreationTests.m
  //   LSSimpleKeychainWrapper
  //
  //  Created by Priya Rajagopal
@@ -23,12 +23,48 @@
  // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  // THE SOFTWARE.
  */
-#import <Foundation/Foundation.h>
+#import <XCTest/XCTest.h>
+#import "LSSimpleKeyChainWrapper.h"
 
-@interface LSSimpleKeyChainWrapper : NSObject
-+(id)keyChainWrapperForService:(NSString*)service andAccount:(NSString*)account;
--(OSStatus)saveData:(id)data;
--(id)fetchData;
--(OSStatus)deleteData;
+@interface LSSimpleKeychainWrapperCreationTests : XCTestCase
+
+@end
+
+@implementation LSSimpleKeychainWrapperCreationTests
+
+- (void)setUp
+{
+    [super setUp];
+    // Put setup code here. This method is called before the invocation of each test method in the class.
+}
+
+- (void)tearDown
+{
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    [super tearDown];
+}
+
+/*
+- (void)testExample
+{
+    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+}
+*/
+-(void)testSingletonCreation {
+ 
+    LSSimpleKeyChainWrapper* kcWrapper1 = [LSSimpleKeyChainWrapper keyChainWrapperForService:@"myService1" andAccount:@"myAccount1"];
+    XCTAssertNotNil(kcWrapper1);
+    
+    LSSimpleKeyChainWrapper* kcWrapper2 = [LSSimpleKeyChainWrapper keyChainWrapperForService:@"myService2" andAccount:@"myAccount2"];
+    XCTAssertNotNil(kcWrapper2);
+    
+    XCTAssertEqualObjects(kcWrapper1, kcWrapper2);
+    
+
+}
+
+
+
+
 
 @end
