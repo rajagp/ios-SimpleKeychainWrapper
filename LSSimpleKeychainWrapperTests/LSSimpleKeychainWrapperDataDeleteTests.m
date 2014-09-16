@@ -36,7 +36,6 @@
 - (void)setUp
 {
     [super setUp];
-    NSString* fakePassword = @"Password";
     self.kcWrapper = [self singletonWrapper];
     self.dataToSave = @{@"email":@"user@example.com",@"password":@"dummy"};
 
